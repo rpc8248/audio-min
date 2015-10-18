@@ -56,6 +56,7 @@ function create_min_audio_players()
         var type = tags[i].getAttribute("type");
         var src = tags[i].getAttribute("src");
         var mutable = tags[i].hasAttribute("mutable");
+        var restart = tags[i].hasAttribute("restart");
         
         // Create audio tag
         var audio = document.createElement("audio");
@@ -135,6 +136,19 @@ function create_min_audio_players()
                 'glyphicon glyphicon-volume-off btn btn-default'
             mute_button.id = title + '-mute'
             tags[i].appendChild(mute_button);
+        }
+        
+        // Create restart button if requested. Use Glyphicons.
+        if(restart)
+        {
+            var restart_button = document.createElement("button");
+            restart_button.setAttribute('onclick',
+                "restart_song(document.getElementById('" 
+                + audio.id + "'))");
+            restart_button.className = 
+                'glyphicon glyphicon-fast-backward btn btn-default'
+            restart_button.id = title + '-restart'
+            tags[i].appendChild(restart_button);
         }
     }
     
@@ -276,5 +290,19 @@ function toggle_mute_button(song_muted, button)
     {
         button.className = button.className.replace(
             'glyphicon-volume-off','glyphicon-volume-up');
+    }
+}
+
+/**
+ * Restart song when the restart button is clicked.
+ *
+ * song: The audio tag's id
+ */
+function restart_song(song)
+{
+    // Reset the current time
+    if(song.currentTime != 0)
+    {
+        song.currentTime = 0;
     }
 }
