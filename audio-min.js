@@ -49,6 +49,9 @@ function create_min_audio_players()
     // Get all audio-min tags
     var tags = document.getElementsByTagName("audio-min");
     
+    // This will contain all the internal audio tags
+    var songs = [];
+    
     // Loop through audio-min tags
     for(i = 0; i < tags.length; ++i)
     {
@@ -151,10 +154,12 @@ function create_min_audio_players()
             restart_button.id = title + '-restart'
             tags[i].appendChild(restart_button);
         }
+        
+        // Save the internal audio tag
+        songs.push(audio);
     }
     
     // Set up onended event for each audio tag
-    songs = document.getElementsByTagName('audio');
     for(i = 0; i < songs.length; ++i)
     {
         songs[i].onended = function(event) {
