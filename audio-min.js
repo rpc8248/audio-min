@@ -212,6 +212,7 @@ function toggle_play_pause(song, button)
         }
         
         // Play the song and change the play button to a pause button
+        song.muted = false;
         song.play();
         toggle_play_pause_button(song.paused,button);
     }
