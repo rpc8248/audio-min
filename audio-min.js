@@ -21,6 +21,7 @@
  *          same file name with the exception of the
  *          extension.
  *  mutable: Boolean attribute. Set if a mute button is desired.
+ *  restart: Boolean attribute. Set if a restart button is desired.
  */
 
 /**
