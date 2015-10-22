@@ -48,7 +48,7 @@ function create_min_audio_players()
 {
     // Get all audio-min tags
     var tags_1 = document.getElementsByTagName("audio-min");
-    var tags_2 = document.getElementsByTagName("data-audio-min");
+    var tags_2 = document.getElementsByClassName("audio-min");
 
     var array_1 = Array.prototype.slice.call(tags_1);
     var array_2 = Array.prototype.slice.call(tags_2);
