@@ -47,7 +47,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function create_min_audio_players()
 {
     // Get all audio-min tags
-    var tags = document.getElementsByTagName("audio-min");
+    var tags_1 = document.getElementsByTagName("audio-min");
+    var tags_2 = document.getElementsByTagName("data-audio-min");
+
+    var array_1 = Array.prototype.slice.call(tags_1);
+    var array_2 = Array.prototype.slice.call(tags_2);
+
+    var tags = array_1.concat(array_2);
     
     // This will contain all the internal audio tags
     var songs = [];
