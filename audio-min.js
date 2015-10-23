@@ -161,11 +161,16 @@ function create_min_audio_players()
         // Create restart button if requested. Use Glyphicons.
         if(restart)
         {
+            var mute_button_id;
+            if(mute_button)
+            {
+                mute_button_id = mute_button.id;
+            }
             var restart_button = document.createElement("button");
             restart_button.setAttribute('onclick',
                 "restart_song("
                 + "document.getElementById('" + audio.id + "'),"
-                + "document.getElementById('" + mute_button.id + "'))");
+                + "document.getElementById('" + mute_button_id + "'))");
             restart_button.className = 
                 'glyphicon glyphicon-fast-backward btn btn-default'
             restart_button.id = title + '-restart'
