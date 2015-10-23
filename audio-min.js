@@ -9,8 +9,14 @@
  * It's basically an audio player with a play/pause toggle
  * button and optional mute button, all without the progress bar.
  * 
- * USAGE: <audio-min attributes>(Error text goes here)</audiomin>
- * Type "Default" as the error text to get a default message on error.
+ * USAGE:
+ *      <audio-min>(Error text goes here)</audiomin>
+ *      <div class = "audio-min">(Error text goes here)</div>
+ *
+ * - All attributes for the audio tag can also be used in the
+ * audio-min and div tags.
+ * - Additional classes can be added to either tag with no issues.
+ * - Type "Default" as the error text to get a default message on error.
  *
  * ATTRIBUTES:
  *  id: Unique title for tag
