@@ -325,7 +325,7 @@ function toggle_mute_button(song_muted, button)
 function restart_song(song, mute_button)
 {
     // Set volume button to initial state (mute) if paused
-    if(song.paused)
+    if(song.paused && mute_button)
     {
         toggle_mute_button(true, mute_button);
     }
