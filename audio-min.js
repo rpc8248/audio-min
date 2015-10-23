@@ -64,9 +64,19 @@ function create_min_audio_players()
         // Save the attributes of the current tag
         var title = tags[i].getAttribute("id");
         var type = tags[i].getAttribute("type");
+        if(!type)
+        {
+            type = tags[i].getAttribute("data-type");
+        }
         var src = tags[i].getAttribute("src");
-        var mutable = tags[i].hasAttribute("mutable");
-        var restart = tags[i].hasAttribute("restart");
+        if(!src)
+        {
+            src = tags[i].getAttribute("data-src");
+        }
+        var mutable = tags[i].hasAttribute("mutable")
+                        || tags[i].hasAttribute("data-mutable");
+        var restart = tags[i].hasAttribute("restart")
+                        || tags[i].hasAttribute("data-mutable");
         
         // Create audio tag
         var audio = document.createElement("audio");
