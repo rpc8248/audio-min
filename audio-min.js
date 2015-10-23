@@ -163,8 +163,9 @@ function create_min_audio_players()
         {
             var restart_button = document.createElement("button");
             restart_button.setAttribute('onclick',
-                "restart_song(document.getElementById('" 
-                + audio.id + "'))");
+                "restart_song("
+                + "document.getElementById('" + audio.id + "'),"
+                + "document.getElementById('" + mute_button.id + "'))");
             restart_button.className = 
                 'glyphicon glyphicon-fast-backward btn btn-default'
             restart_button.id = title + '-restart'
@@ -319,9 +320,16 @@ function toggle_mute_button(song_muted, button)
  * Restart song when the restart button is clicked.
  *
  * song: The audio tag's id
+ * mute_button: The mute button of the song
  */
-function restart_song(song)
+function restart_song(song, mute_button)
 {
+    // Set volume button to initial state (mute) if paused
+    if(song.paused)
+    {
+        toggle_mute_button(true, mute_button);
+    }
+    
     // Reset the current time
     if(song.currentTime != 0)
     {
