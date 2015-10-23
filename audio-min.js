@@ -82,7 +82,7 @@ function create_min_audio_players()
         var mutable = tags[i].hasAttribute("mutable")
                         || tags[i].hasAttribute("data-mutable");
         var restart = tags[i].hasAttribute("restart")
-                        || tags[i].hasAttribute("data-mutable");
+                        || tags[i].hasAttribute("data-restart");
         
         // Create audio tag
         var audio = document.createElement("audio");
